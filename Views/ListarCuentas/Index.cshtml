@@ -1,0 +1,49 @@
+@model PC2MKTS.ViewModel.CuentasBancariasViewModel
+@{
+    ViewData["Title"] = "Listado de Cuentas Bancarias";
+}
+<div class="container mt-4">
+    <h1 class="text-center mb-4">@ViewData["Title"]</h1>
+
+    <div class="row justify-content-center">
+        <div class="col-lg-8">
+            <div class="card">
+                <div class="card-header">
+                    <h5 class="card-title">Lista de Cuentas Bancarias</h5>
+                </div>
+                <div class="card-body">
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th>Nombre del Titular de la Cuenta</th>
+                                <th>Tipo de Cuenta</th>
+                                <th>Saldo Inicial</th>
+                                <th>Correo Electrónico</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @if (Model.ListarCuentasBancarias != null && Model.ListarCuentasBancarias.Any())
+                            {
+                                @foreach (var cuenta in Model.ListarCuentasBancarias)
+                                {
+                                    <tr>
+                                        <td>@cuenta.nomTit</td>
+                                        <td>@cuenta.tipCuen</td>
+                                        <td>@cuenta.salIni</td>
+                                        <td>@cuenta.correO</td>
+                                    </tr>
+                                }
+                            }
+                            else
+                            {
+                                <tr>
+                                    <td colspan="4" class="text-center">No se encuentra esa Cuenta Bancaria registrada.</td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
