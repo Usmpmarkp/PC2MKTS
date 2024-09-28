@@ -9,4 +9,5 @@ public class ApplicationDbContext : IdentityDbContext
         : base(options)
     {
     }
+    public DbSet<PC2MKTS.Models.Bancos> DataBancos { get; set; }
 }
